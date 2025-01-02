@@ -13,4 +13,7 @@ class AppColors {
   static const secondaryText = Color(
     0xFF898A8D,
   );
+  static const inputBorder = Color(
+    0xFFC4C4C4,
+  );
 }
