@@ -1,7 +1,4 @@
 import 'package:first_bank_app/common_widgets/common_widgets.dart';
-import 'package:first_bank_app/common_widgets/layouts/primary_layout.dart';
-import 'package:first_bank_app/common_widgets/text/primary_text.dart';
-import 'package:first_bank_app/common_widgets/text/secondary_text.dart';
 import 'package:first_bank_app/constants/constants.dart';
 import 'package:first_bank_app/features/loan/widgets/loan_app_bar.dart';
 import 'package:first_bank_app/features/loan/widgets/loan_request_stepper.dart';

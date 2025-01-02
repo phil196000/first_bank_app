@@ -29,7 +29,7 @@ class PrimaryText extends StatelessWidget {
       style: TextStyle(
         color: color ?? AppColors.primaryText,
         fontSize: fontSize,
-        fontWeight: fontWeight,
+        fontWeight: fontWeight ?? FontWeight.w500,
       ),
     );
   }

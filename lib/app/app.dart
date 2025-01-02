@@ -1,5 +1,6 @@
 import 'package:first_bank_app/app/providers.dart';
 import 'package:first_bank_app/features/loan/screens/eligibility_verfication.dart';
+import 'package:first_bank_app/features/loan/screens/pre_approval.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
         ),
-        home: EligibilityVerfication(),
+        home: PreApproval(),
       ),
     );
   }
