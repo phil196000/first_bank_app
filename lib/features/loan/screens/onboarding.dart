@@ -1,6 +1,7 @@
 import 'package:first_bank_app/common_widgets/text/primary_text.dart';
 import 'package:first_bank_app/common_widgets/text/secondary_text.dart';
 import 'package:first_bank_app/constants/constants.dart';
+import 'package:first_bank_app/features/loan/screens/eligibility_verfication.dart';
 import 'package:first_bank_app/features/loan/widgets/loan_app_bar.dart';
 import 'package:first_bank_app/common_widgets/layouts/primary_layout.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_svg/svg.dart';
 
 class Onboarding extends StatelessWidget {
   Onboarding({super.key});
+  static const String routeName = '/';
 
   final List<OnboardingItem> onboardingItems = [
     OnboardingItem(
@@ -18,6 +20,7 @@ class Onboarding extends StatelessWidget {
       icon: SvgPicture.asset(
         Assets.moneyIcon,
       ),
+      route: EligibilityVerfication.routeName,
     ),
     OnboardingItem(
       title: 'Active Loan',
@@ -41,7 +44,9 @@ class Onboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PrimaryLayout(
-      appBar: LoanAppBar(),
+      appBar: LoanAppBar(
+        disableBackButton: true,
+      ),
       child: SingleChildScrollView(
         padding: EdgeInsets.all(
           Spacing.s24,
@@ -55,6 +60,11 @@ class Onboarding extends StatelessWidget {
                     height: Spacing.s20,
                   ),
                   GestureDetector(
+                    onTap: () {
+                      if (item.route != null) {
+                        Navigator.pushNamed(context, item.route!);
+                      }
+                    },
                     child: Column(
                       spacing: Spacing.s8,
                       children: [

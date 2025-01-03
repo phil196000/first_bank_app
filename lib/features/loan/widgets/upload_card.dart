@@ -3,9 +3,11 @@ import 'dart:io';
 import 'package:first_bank_app/common_widgets/text/primary_text.dart';
 import 'package:first_bank_app/common_widgets/text/secondary_text.dart';
 import 'package:first_bank_app/constants/constants.dart';
+import 'package:first_bank_app/features/loan/providers/loan_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 
 class UploadCard extends StatefulWidget {
   const UploadCard({
@@ -33,11 +35,16 @@ class _UploadCardState extends State<UploadCard> {
       );
 
       if (image != null) {
+        final File file = File(image.path);
         setState(() {
-          selectedImage = File(
-            image.path,
-          );
+          selectedImage = file;
         });
+        if (widget.title == 'Valid ID Card' && mounted) {
+          context.read<LoanProvider>().setIdCard(file);
+        } else if (widget.title == 'Letter of Salary Domiciliation' &&
+            mounted) {
+          context.read<LoanProvider>().setLetterOfSalaryDomiciliation(file);
+        }
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -63,7 +70,7 @@ class _UploadCardState extends State<UploadCard> {
         GestureDetector(
           onTap: pickImage,
           child: Container(
-            height: Spacing.s160,
+            height: Spacing.s150,
             padding: selectedImage != null
                 ? EdgeInsets.zero
                 : EdgeInsets.symmetric(

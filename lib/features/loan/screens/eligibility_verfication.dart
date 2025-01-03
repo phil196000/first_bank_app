@@ -1,11 +1,15 @@
 import 'package:first_bank_app/common_widgets/common_widgets.dart';
 import 'package:first_bank_app/constants/constants.dart';
+import 'package:first_bank_app/features/loan/providers/loan_provider.dart';
+import 'package:first_bank_app/features/loan/screens/pre_approval.dart';
 import 'package:first_bank_app/features/loan/widgets/loan_app_bar.dart';
 import 'package:first_bank_app/features/loan/widgets/loan_request_stepper.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class EligibilityVerfication extends StatelessWidget {
   const EligibilityVerfication({super.key});
+  static const routeName = '/eligibility-verification';
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +51,13 @@ class EligibilityVerfication extends StatelessWidget {
                   ),
                   PrimaryButton(
                     label: 'Check Your Eligibility',
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<LoanProvider>().nextStep();
+                      Navigator.pushNamed(
+                        context,
+                        PreApproval.routeName,
+                      );
+                    },
                   ),
                   SizedBox(
                     height: Spacing.s16,

@@ -1,12 +1,17 @@
 import 'package:first_bank_app/common_widgets/text/primary_text.dart';
 import 'package:first_bank_app/constants/constants.dart';
+import 'package:first_bank_app/features/loan/screens/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class LoanAppBar extends StatelessWidget implements PreferredSizeWidget {
   const LoanAppBar({
     super.key,
+    this.showCloseButton = false,
+    this.disableBackButton = false,
   });
+  final bool showCloseButton;
+  final bool disableBackButton;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +42,20 @@ class LoanAppBar extends StatelessWidget implements PreferredSizeWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                if (showCloseButton) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Onboarding();
+                      },
+                    ),
+                  );
+                } else if (!disableBackButton) {
+                  Navigator.of(context).pop();
+                }
+              },
               child: Container(
                 padding: EdgeInsets.all(
                   Spacing.s8,
@@ -61,7 +79,7 @@ class LoanAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ],
                 ),
                 child: Icon(
-                  Icons.arrow_back,
+                  showCloseButton ? Icons.close : Icons.arrow_back,
                 ),
               ),
             ),
