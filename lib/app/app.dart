@@ -1,4 +1,5 @@
 import 'package:first_bank_app/app/providers.dart';
+import 'package:first_bank_app/features/loan/screens/document_upload.dart';
 import 'package:first_bank_app/features/loan/screens/eligibility_verfication.dart';
 import 'package:first_bank_app/features/loan/screens/loan_eligibility_information.dart';
 import 'package:first_bank_app/features/loan/screens/pre_approval.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
         ),
-        home: LoanEligibilityInformation(),
+        home: DocumentUpload(),
       ),
     );
   }

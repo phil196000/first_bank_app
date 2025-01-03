@@ -5,4 +5,5 @@ class Assets {
   static const activeLoanIcon = 'lib/assets/svgs/active_loan.svg';
   static const informationFillIcon = 'lib/assets/svgs/information_fill.svg';
   static const congratulations = 'lib/assets/svgs/congratulations.svg';
+  static const uploadCloud = 'lib/assets/svgs/upload_cloud.svg';
 }
